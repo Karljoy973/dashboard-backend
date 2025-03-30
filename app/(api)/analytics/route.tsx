@@ -34,6 +34,7 @@ import { NextResponse } from "next/server";
  */
 
 export async function GET() {
-  return NextResponse.json([{ name: 'Jan', uniqueViews: 4000, pageViews: 6000, amount: 3000 }]);
+  return NextResponse.json([
+    { name: "Jan", uniqueViews: 4000, pageViews: 6000, amount: 3000 },
+  ]);
 }
-

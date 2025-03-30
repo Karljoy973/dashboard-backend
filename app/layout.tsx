@@ -21,13 +21,12 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-						<div >
-							{children}
-						</div>
-			</body>
-		</html>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <div>{children}</div>
+      </body>
+    </html>
   );
 }

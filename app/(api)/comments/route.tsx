@@ -27,5 +27,5 @@ import { NextResponse } from "next/server";
  *         description: Internal server error.
  */
 export async function GET() {
-    return NextResponse.json([{text: "Great ...", author: "John Doe"}])
+  return NextResponse.json([{ text: "Great ...", author: "John Doe" }]);
 }
