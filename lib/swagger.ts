@@ -24,4 +24,4 @@ export const getApiDocs = async () => {
   return spec;
 };
 
-//j'aurais bien aimé pouvoir lui dire de parser des commentaires faits par tsdoc et de créer la doc. 
+//j'aurais bien aimé pouvoir lui dire de parser des commentaires faits par tsdoc et de créer la doc.

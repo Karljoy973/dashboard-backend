@@ -9,9 +9,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": [
-    "cli/**/*",
-    "generator/**/*"
-  ],
+  "include": ["cli/**/*", "generator/**/*"],
   "exclude": ["node_modules", "dist", "**/*.js"]
 }

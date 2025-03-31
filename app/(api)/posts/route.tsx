@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getPosts } from "@/service/get-posts";
 /**
  * @swagger
  * /posts:
@@ -46,21 +47,10 @@ import { NextResponse } from "next/server";
  */
 
 export async function GET() {
-  return NextResponse.json([
-    {
-      title: "Machine Learning: Powering Intelligent Systems",
-      body: "Machine Learning (ML) algorithms enable computers...",
-      author: "Ava Johnson",
-      date: "2024-05-20",
-      like: false,
-      comments: [
-        { id: "1", text: "ML is reshaping industries.", username: "Emma" },
-        {
-          id: "2",
-          text: "I'm interested in reinforcement learning.",
-          username: "Daniel",
-        },
-      ],
-    },
-  ]);
+  try {
+    const data = await getPosts();
+    return NextResponse.json(data, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: error }, { status: 500 });
+  }
 }

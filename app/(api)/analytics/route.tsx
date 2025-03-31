@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
+import { getAnalytics } from "@/service/get-analytics";
 /**
  * @swagger
  * /analytics:
  *   get:
- *     summary: Retrieve a list of authors
- *     description: Fetches all authors from the database.
+ *     summary: Retrieve a list of analytics, the data looks like google analytics data
+ *     description: Fetches all analytics from the database.
  *     tags:
- *       - Authors
+ *       - Analytics
  *     responses:
  *       200:
- *         description: A list of authors.
+ *         description: A list of analytics.
  *         content:
  *           application/json:
  *             schema:
@@ -34,7 +35,10 @@ import { NextResponse } from "next/server";
  */
 
 export async function GET() {
-  return NextResponse.json([
-    { name: "Jan", uniqueViews: 4000, pageViews: 6000, amount: 3000 },
-  ]);
+  try {
+    const data = await getAnalytics();
+    return NextResponse.json(data, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: error }, { status: 500 });
+  }
 }

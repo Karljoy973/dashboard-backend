@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { getComments } from "@/service/get-comments";
 /**
  * @swagger
  * /commments:
@@ -27,5 +28,10 @@ import { NextResponse } from "next/server";
  *         description: Internal server error.
  */
 export async function GET() {
-  return NextResponse.json([{ text: "Great ...", author: "John Doe" }]);
+  try {
+    const data = await getComments();
+    return NextResponse.json(data, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ message: error }, { status: 500 });
+  }
 }
