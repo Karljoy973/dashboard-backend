@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAnalytics } from "@/service/get-analytics";
+import { errorPayloadSpecs, errorSpecs, responseSpecs } from "../headers";
 /**
  * @swagger
  * /analytics:
@@ -35,10 +36,10 @@ import { getAnalytics } from "@/service/get-analytics";
  */
 
 export async function GET() {
-  try {
-    const data = await getAnalytics();
-    return NextResponse.json(data, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: error }, { status: 500 });
-  }
+	try {
+		const data = await getAnalytics();
+		return NextResponse.json(data, responseSpecs);
+	} catch (error) {
+		NextResponse.json(errorPayloadSpecs, errorSpecs);
+	}
 }

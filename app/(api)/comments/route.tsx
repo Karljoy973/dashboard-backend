@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getComments } from "@/service/get-comments";
+import { responseSpecs, errorPayloadSpecs, errorSpecs } from "../headers";
 /**
  * @swagger
  * /commments:
@@ -28,10 +29,10 @@ import { getComments } from "@/service/get-comments";
  *         description: Internal server error.
  */
 export async function GET() {
-  try {
-    const data = await getComments();
-    return NextResponse.json(data, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: error }, { status: 500 });
-  }
+	try {
+		const data = await getComments();
+		return NextResponse.json(data, responseSpecs);
+	} catch (error) {
+		return NextResponse.json(errorPayloadSpecs, errorSpecs);
+	}
 }

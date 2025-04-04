@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getPosts } from "@/service/get-posts";
+import { errorPayloadSpecs, errorSpecs, responseSpecs } from "../headers";
 /**
  * @swagger
  * /posts:
@@ -47,10 +48,10 @@ import { getPosts } from "@/service/get-posts";
  */
 
 export async function GET() {
-  try {
-    const data = await getPosts();
-    return NextResponse.json(data, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: error }, { status: 500 });
-  }
+	try {
+		const data = await getPosts();
+		return NextResponse.json(data, responseSpecs);
+	} catch (error) {
+		NextResponse.json(errorPayloadSpecs, errorSpecs);
+	}
 }

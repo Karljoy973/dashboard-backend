@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getAuthors } from "@/service/get-authors";
+import { responseSpecs, errorPayloadSpecs, errorSpecs } from "../headers";
 /**
  * @swagger
  * /authors:
@@ -28,10 +29,10 @@ import { getAuthors } from "@/service/get-authors";
  *         description: Internal server error.
  */
 export async function GET() {
-  try {
-    const data = await getAuthors();
-    return NextResponse.json(data, { status: 200 });
-  } catch (error) {
-    return NextResponse.json({ message: error }, { status: 500 });
-  }
+	try {
+		const data = await getAuthors();
+		return NextResponse.json(data, responseSpecs);
+	} catch (error) {
+		NextResponse.json(errorPayloadSpecs, errorSpecs);
+	}
 }
