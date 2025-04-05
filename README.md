@@ -1,40 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# 🚀 Next.js REST API with Neon DB
 
-## Getting Started
+Une API REST performante construite avec **Next.js** (App Router) et connectée à une base **Neon PostgreSQL**, pensée pour être **scalable**, **maintenable** et **prête pour la production**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🧠 Objectif
+
+Créer une API moderne capable de :
+
+- Récupérer des données depuis une base **Neon DB**
+- Exposer ces données via des **endpoints RESTful**
+- Être **facilement déployable** 
+- Servir de **base solide** pour tout projet backend en Next.js
+
+---
+
+## ⚙️ Stack technique
+
+- **Next.js (App Router)** — Framework React/Full-stack
+- **Neon** — PostgreSQL serverless
+- **TypeScript** — Sécurité & clarté
+- **REST API** — Architecture simple & efficace
+
+---
+
+## 📁 Structure du projet
+
+```
+my-project/
+├── app/
+│   └── (api)/
+│       └── analytics/route.ts
+|       └── authors/route.ts
+|       └── comments/route.ts
+|    └── api-docs/route.ts # documentation swagger
+|   └── route.ts
+├── lib/
+│   └── db.ts                    # Configuration de la connexion à Neon DB
+├── public/
+├── styles/
+├── .env                        # Variables d'environnement (ex: DATABASE_URL)
+├── next.config.js
+├── package.json
+└── tsconfig.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/route.ts`. The page auto-updates as you edit the file.
+## 🚀 Lancer le projet
 
-## Learn More
+1. **Cloner le repo**
+   ```bash
+   git clone https://github.com/ton-pseudo/ton-projet.git
+   cd ton-projet
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Installer les dépendances**
+   ```bash
+   pnpm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Configurer la base de données**
+   - Crée un fichier `.env` à la racine du projet :
+     ```env
+     DATABASE_URL="postgresql://user:password@neon-host/dbname"
+     ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Lancer le serveur**
+   ```bash
+   pnpm run dev
+   ```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📬 Exemple d'endpoints
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Méthode | Route            | Description               |
+|--------:|------------------|---------------------------|
+| GET     | `/api/analytics`     | Récupère toutes les données analytics   |
+| GET     | `/api/authors` | Récupère les données des autheurs          |
+| GET    | `/api/comments`     | Récupère la liste des commentaires      |
 
-## API Routes
+---
 
-This directory contains example API routes for the headless API app.
+## 🛡️ Production-ready
 
-For more details, see [route.js file convention](https://nextjs.org/docs/app/api-reference/file-conventions/route).
+- ✅ Connexion sécurisée à Neon via Vercel
+- ✅ API REST simple et claire
+- ✅ Typage complet via TypeScript
+
+---
+
+## 📄 Licence
+
+MIT — libre d’utilisation, de modification et de partage.
+
+---
+
+> Développé avec Next.js & ❤️ par [Karl JOYEUX](www.linkedin.com/in/karl-joyeux)
+
