@@ -31,3 +31,6 @@ export default function AuthLayout({
 		</html>
 	);
 }
+
+//FIXME - Update Envs 
+//NOTE - J'ai tenté mais je n'avais pas d'internet 
