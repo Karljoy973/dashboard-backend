@@ -10,4 +10,3 @@ export function getDB() {
   return sqlInstance as ReturnType<typeof neon>;
 }
 
-//est ce que j'ai une erreur en cas de problème ? 
